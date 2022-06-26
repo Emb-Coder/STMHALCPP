@@ -27,18 +27,17 @@ void LowPower::init()
 
 DriversExecStatus LowPower::enable()
 {
-	if (lpRtc == nullptr)
-		return (STATUS_ERROR);
-
-	if (!lpRtc->valid())
-		return (STATUS_ERROR);
-
-	if ( (millisecondsSleep && secondsSleep) || (!millisecondsSleep && !secondsSleep) )
-		return (STATUS_ERROR);
-
-
 	if (sleepTime != UINT16_MAX)
 	{
+		if (lpRtc == nullptr)
+			return (STATUS_ERROR);
+
+		if (!lpRtc->valid())
+			return (STATUS_ERROR);
+
+		if ( (millisecondsSleep && secondsSleep) || (!millisecondsSleep && !secondsSleep) )
+			return (STATUS_ERROR);
+
 		if (millisecondsSleep)
 		{
 			if (STATUS_OK != lpRtc->setWakeupTimer(sleepTime, nullptr))
