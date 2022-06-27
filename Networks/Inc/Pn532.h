@@ -83,6 +83,62 @@ public:
 
 	virtual ~Pn532();
 
+	const Serial* getDebugger() const {
+		return _debugger;
+	}
+
+	const std::pair<GpioPortsTypeDef, uint16_t>& getIrqPin() const {
+		return _irqPin;
+	}
+
+	const std::pair<GpioPortsTypeDef, uint16_t>& getRstPin() const {
+		return _rstPin;
+	}
+
+	SpiInstancesTypeDef getSpiInstance() const {
+		return _spiInstance;
+	}
+
+	const std::pair<GpioPortsTypeDef, uint16_t>& getSsPin() const {
+		return _ssPin;
+	}
+
+	uint32_t getTimeout() const {
+		return _timeout;
+	}
+
+	void setTimeout(uint32_t timeout) {
+		_timeout = timeout;
+	}
+
+	TwiInstancesTypeDef getTwiInstance() const {
+		return _twiInstance;
+	}
+
+	bool isUseTwi() const {
+		return _useTwi;
+	}
+
+	const Gpio* getPn532Cs() const {
+		return pn532Cs;
+	}
+
+	const Gpio* getPn532Irq() const {
+		return pn532Irq;
+	}
+
+	const Gpio* getPn532Rst() const {
+		return pn532Rst;
+	}
+
+	const Spi* getPn532Spi() const {
+		return pn532Spi;
+	}
+
+	const Twi* getPn532Twi() const {
+		return pn532Twi;
+	}
+
 private:
 	uint32_t _timeout;
 

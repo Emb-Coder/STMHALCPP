@@ -54,6 +54,50 @@ public:
 		this->_debugger = debugger;
 	}
 
+	const Serial* getDebugger() const {
+		return _debugger;
+	}
+
+	const std::pair<GpioPortsTypeDef, uint16_t>& getDtrPin() const {
+		return _dtrPin;
+	}
+
+	const std::pair<GpioPortsTypeDef, uint16_t>& getRstPin() const {
+		return _rstPin;
+	}
+
+	SerialInstancesTypeDef getSerialInstance() const {
+		return _serialInstance;
+	}
+
+	uint32_t getTimeout() const {
+		return _timeout;
+	}
+
+	void setTimeout(uint32_t timeout) {
+		_timeout = timeout;
+	}
+
+	bool isUseDtrPin() const {
+		return _useDtrPin;
+	}
+
+	bool isUseRstPin() const {
+		return _useRstPin;
+	}
+
+	const Gpio* getSim800lDtrPin() const {
+		return sim800lDtrPin;
+	}
+
+	const Gpio* getSim800lRstPin() const {
+		return sim800lRstPin;
+	}
+
+	const Serial* getSim800lSerial() const {
+		return sim800lSerial;
+	}
+
 private:
 	uint32_t _timeout;
 	char _stringBuffer[255];
