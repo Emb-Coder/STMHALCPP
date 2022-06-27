@@ -41,6 +41,16 @@ public:
         uint32_t  slaveAddress;
 	};
 
+	TwiInstancesTypeDef getChannel() const
+	{
+		return _channel;
+	}
+
+	const twi_settings_t& getSettings() const
+	{
+		return _settings;
+	}
+
 	void* get_hi2c() { return _hi2c; }
 
 	bool valid(){ return _valid;}

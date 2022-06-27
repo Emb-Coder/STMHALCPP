@@ -65,6 +65,21 @@ public:
 		SpiClockModeTypeDef clockMode:2;
 	};
 
+	SpiInstancesTypeDef getChannel() const
+	{
+		return _channel;
+	}
+
+	const Gpio* getCsPin() const
+	{
+		return _csPin;
+	}
+
+	const spi_settings_t& getSettings() const
+	{
+		return _settings;
+	}
+
 	void* get_hspi() { return _hspi; }
 
 	bool valid(){ return _valid;}

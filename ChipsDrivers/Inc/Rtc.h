@@ -74,8 +74,34 @@ public:
 		uint8_t day:5;				// 1-31
 		uint8_t month:4;			// 1-12
 		uint8_t year;				// 0-255
+
 	};
 
+
+	RtcClockSourceTypeDef getClockSource() const
+	{
+		return _clockSource;
+	}
+
+	const rtcTimeDate& getCurrentConfig() const
+	{
+		return _currentConfig;
+	}
+
+	RtcBackupRegistersTypeDef getInitBckpRegister() const
+	{
+		return _initBckpRegister;
+	}
+
+	void setInitBckpRegister(RtcBackupRegistersTypeDef initBckpRegister = RtcBackupRegistersTypeDef::DR0)
+	{
+		_initBckpRegister = initBckpRegister;
+	}
+
+	uint32_t getInitFlagValue() const
+	{
+		return _initFlagValue;
+	}
 
 	void setInitFlagValue(uint32_t initFlagValue = 0x12345)
 	{
