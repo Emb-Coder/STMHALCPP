@@ -91,6 +91,10 @@ public:
 
 	bool valid(){ return _valid;}
 
+	const tim_settings& getSettings() const {
+		return _settings;
+	}
+
 	static Timer* timer_instance[8];
 
 	static TimerModeTypeDef timerChannelsMode[8][4];

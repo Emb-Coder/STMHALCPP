@@ -233,6 +233,18 @@ void Gpio::attachInterrupt(void (*interruptRoutine)(), GpioTriggerModeTypeDef tr
 	HAL_NVIC_EnableIRQ(IRQnInstance);
 }
 
+void Gpio::startInterrupt(void)
+{
+	if (_iRQnInstance != 99 )
+		HAL_NVIC_EnableIRQ(_iRQnInstance);
+}
+
+void Gpio::stopInterrupt(void)
+{
+	if (_iRQnInstance != 99 )
+		HAL_NVIC_DisableIRQ(_iRQnInstance);
+}
+
 // destructor
 Gpio::~Gpio()
 {

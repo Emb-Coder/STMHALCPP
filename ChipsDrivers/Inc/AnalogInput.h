@@ -87,6 +87,34 @@ public:
 		return _channels;
 	}
 
+	analogInputClkPrescTypeDef getClkPrescaler() const {
+		return _clkPrescaler;
+	}
+
+	uint8_t getDmaItPreempPrio() const {
+		return _dmaItPreempPrio;
+	}
+
+	uint8_t getDmaItSubPrio() const {
+		return _dmaItSubPrio;
+	}
+
+	const uint16_t* getDmaMainBuf() const {
+		return _dmaMainBuf;
+	}
+
+	analogInputModeTypeDef getMode() const {
+		return _mode;
+	}
+
+	uint8_t getNbrOfChannels() const {
+		return _nbrOfChannels;
+	}
+
+	bool isValid() const {
+		return _valid;
+	}
+
 	static AnalogInput* analogInInstance;
 
 private:

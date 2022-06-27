@@ -59,6 +59,21 @@ public:
         SerialParityTypeDef  parity:2;
 	};
 
+	SerialInstancesTypeDef getChannel() const
+	{
+		return _channel;
+	}
+
+	const uint8_t* getMainBuffer() const
+	{
+		return _mainBuffer;
+	}
+
+	const settings_t& getSettings() const
+	{
+		return _settings;
+	}
+
 	void* get_huart() { return _huart; }
 
 	bool valid(){ return _valid;}
