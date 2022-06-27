@@ -84,11 +84,46 @@ public:
 
 	void attachInterrupt(void (*interruptRoutine)(), GpioTriggerModeTypeDef triggerMode, GpioPullTypeDef pullMode = GpioPullTypeDef::NOPULL);
 
+	void startInterrupt(void);
+	void stopInterrupt(void);
+
 	virtual ~Gpio();
 
 	bool isInitialized() const { return _initialized; }
 
 	GpioModeTypeDef getMode() const { return _mode;}
+
+	IRQn_Type getIRQnInstance() const {
+		return _iRQnInstance;
+	}
+
+	GpioOutModeTypeDef getOutMode() const {
+		return _outMode;
+	}
+
+	GpioOutSpeedTypeDef getOutSpeed() const {
+		return _outSpeed;
+	}
+
+	uint16_t getPinInstance() const {
+		return _pinInstance;
+	}
+
+	uint16_t getPinNumber() const {
+		return _pinNumber;
+	}
+
+	GpioPortsTypeDef getPort() const {
+		return _port;
+	}
+
+	const GPIO_TypeDef* getPortInstance() const {
+		return _portInstance;
+	}
+
+	GpioPullTypeDef getPull() const {
+		return _pull;
+	}
 };
 
 #endif /* INC_GPIO_H_ */

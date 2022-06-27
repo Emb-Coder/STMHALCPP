@@ -39,6 +39,34 @@ public:
 	uint32_t getCpuFrequency() const { return _cpuFrequency; }
 
 	DriversExecStatus setDutyCycle(uint8_t dutyCycle);
+
+	uint16_t getArrValue() const {
+		return _arrValue;
+	}
+
+	uint16_t getFrequency() const {
+		return _frequency;
+	}
+
+	bool isInitialized() const {
+		return _initialized;
+	}
+
+	TimerChannelTypeDef getPwmChannel() const {
+		return _pwmChannel;
+	}
+
+	TimerInstancesTypeDef getPwmTimerInstance() const {
+		return _PwmTimerInstance;
+	}
+
+	const Timer* getTimInstance() const {
+		return _timInstance;
+	}
+
+	uint8_t getDutyCycle() const {
+		return dutyCycle;
+	}
 };
 
 #endif /* CHIPSDRIVERS_INC_PWM_H_ */

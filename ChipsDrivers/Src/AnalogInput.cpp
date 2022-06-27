@@ -77,7 +77,7 @@ DriversExecStatus AnalogInput::begin(std::set<analogInputChannelsTypeDef>& chann
 	if (__HAL_RCC_DMA2_IS_CLK_DISABLED())
 		__HAL_RCC_DMA2_CLK_ENABLE();
 
-	HAL_NVIC_SetPriority(DMA2_Stream0_IRQn, 0, 0);
+	HAL_NVIC_SetPriority(DMA2_Stream0_IRQn, _dmaItPreempPrio, _dmaItSubPrio);
 	HAL_NVIC_EnableIRQ(DMA2_Stream0_IRQn);
 
 
@@ -138,7 +138,7 @@ DriversExecStatus AnalogInput::begin(std::set<analogInputChannelsTypeDef>& chann
 
 
     /* ADC1 interrupt Init */
-    HAL_NVIC_SetPriority(ADC_IRQn, 0, 0);
+    HAL_NVIC_SetPriority(ADC_IRQn, _dmaItPreempPrio, _dmaItSubPrio);
     HAL_NVIC_EnableIRQ(ADC_IRQn);
   /* USER CODE BEGIN ADC1_MspInit 1 */
 
